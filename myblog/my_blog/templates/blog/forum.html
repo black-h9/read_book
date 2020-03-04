@@ -1,0 +1,45 @@
+{% extends 'blog/base.html' %}
+{% load staticfiles %}
+{% block title %}论坛{% endblock %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'css\blog\forum.css'%}">
+<script src="/static/js/jquery-3.4.1/jquery-3.4.1.js"></script>
+{% endblock %}
+
+{% block content %}
+<h3>欢迎宝宝来到楼主论坛</h3>
+<hr>
+<div class="left">
+		 <h3>
+			 <ul class="list-unstyled">
+		{% for posts in post %}
+			<li class="title" id="{{posts.id}}"><a href="#">{{posts.title}}</a></li>
+		{% endfor %}
+	</ul>
+		 </h3>
+
+</div>
+<div class="center">
+
+
+	      <div id="body">欢迎来到我的博客</div><br>
+		  <div id="body_comments">
+			 	 <ul class="list-inline">
+					<li id="li_pl"><a href="#">评论</a></li>
+				   <!--<li><a href="#">点赞</a></li>-->
+				 </ul>
+		  </div>
+		  <div id="comment" class="ment"><p id="ck"></p></div>
+
+</div>
+<div class="righ" id="comments_on">
+
+		<div class="pl"><textarea ></textarea>{% csrf_token %}</div>
+		<div class="pl_div">
+                 <button class="btn btn-info" id="submitComment" >确认评论</button>
+                 <button class="btn btn-info" id="cancelComment">取消评论</button>
+             </div>
+
+</div>
+<script type="text/javascript" src="{% static 'js/blog/forum.js' %}"></script>
+{% endblock %}

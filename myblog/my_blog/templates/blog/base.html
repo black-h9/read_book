@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}本站爸爸{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'bootstrap-3.3.7-dist\css\bootstrap.min.css'%}">
+	<script src="{% static 'bootstrap-3.3.7-dist\js\bootstrap.min.js'%}"></script>
+	<script src="{% static 'js\jquery-3.4.1\jquery-3.4.1.min.js' %}"></script>
+    <style>
+		.body{background-color: #1ABC9C;}
+		.img img{width:500px; height:380px;}
+		.active{text-align: center;}
+		.item{text-align: center;}
+		.panel-footer{margin:-20px 0 0 0;}
+		.panel-footer h3{text-align: center;}
+		.panel-default{margin:-20px 0 0 0;}
+	</style>
+    {% block css %}{% endblock %}
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+	<div class="container-fluid">
+    <div class="navbar-header">
+        <a class="navbar-brand" href="{% url 'getindex' %}"><samp class="glyphicon glyphicon-home">首页</samp></a>
+    </div>
+    <div>
+        <ul class="nav navbar-nav">
+
+            <li><a href="{% url 'forum'%}"><samp class="glyphicon glyphicon-align-justify"></samp>&nbsp;&nbsp;论坛</a></li>
+            <li><a href="{% url 'publish'%}"><samp class="glyphicon glyphicon-edit"></samp>&nbsp;&nbsp;留言</a></li>
+        </ul>
+
+		<ul class="nav navbar-nav navbar-right">
+            {% if request.session.is_login %}
+                <li><a href="#">你好！{{ request.session.user_name }}</a></li>
+                <li><a href="/blog/logout">退出</a></li>
+            {% else %}
+                <li><a href="{% url 'getregister' %}"><span class="glyphicon glyphicon-user"></span> 注册</a></li>
+                <li><a href="{% url 'getlogin' %}"><span class="glyphicon glyphicon-log-in"></span> 登录</a></li>
+		    {% endif %}
+        </ul>
+    </div>
+	</div>
+</nav>
+
+{% block content %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,61 @@
+
+.message_board_left{
+    float: left;
+    width:50%;
+    margin:-20px 0 0 0;
+    background: #b9def0;
+}
+.subject{
+    text-align: center;
+    width:500px;
+}
+.subject input{
+    margin: 0px  0px 0px 300px;
+    width: 300px;
+    height:40px;
+}
+.button{
+    margin: 0px 0px 0px 280px ;
+}
+.button button{
+    width:60px;
+    height:30px;
+    margin:0px 0px 0px 20px;
+    background: #5bc0de;
+
+}
+.tell{
+    text-align: center;
+     width:500px;
+}
+.tell textarea{
+    margin: 0px  0px 0px 300px;
+    width:300px;
+    height: 300px;
+}
+.age_message_board_righ{
+    float:left;
+    margin:-20px 0 0 0;
+    width:50%;
+    height:430px;
+    background: lightpink;
+}
+
+.title_messages{
+    float: left;
+    width:30%;
+    height:430px;
+    background: #e6e6e6;
+
+}
+.title_body{
+    float: left;
+    width:70%;
+    height:430px;
+    /*margin:0 0  0 15px;*/
+    background: #3c763d;
+}
+
+.message_title span{
+    font-size:10px;
+}

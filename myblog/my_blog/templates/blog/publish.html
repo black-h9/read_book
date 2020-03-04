@@ -1,0 +1,38 @@
+{% extends 'blog/base.html' %}
+{% load staticfiles %}
+{% block title %}发表{% endblock %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/blog/publish.css' %}">
+<script src="/static/js/jquery-3.4.1/jquery-3.4.1.js"></script>
+{% endblock %}
+
+{% block content %}
+<h3>欢迎宝宝留言</h3>
+<hr>
+<div class="message_board_left">
+
+<div class=" subject"><label >宝宝留言主题:<br>
+    <input type="text" name ='message_title'></label></div>
+<div class="tell"><label>宝宝的留言:<br>
+    <textarea name ='message_body'></textarea></label></div>
+<div class=" button">
+    <label ><button id="btn_l">留言</button></label>
+    <label ><button id="btn_q">取消</button></label></div>
+</div>
+<div class="age_message_board_righ">
+    <div class="title_messages">
+        <h3>宝宝的留言</h3>
+        <ul class="list-unstyled">
+			<!--<li class="title" id="{{posts.id}}"><a href="#">{{posts.title}}</a></li>-->
+            {% for title_messages in messages %}
+            <li class="message_title" id="{{ title_messages.id }}"><a href="#">
+                {{ title_messages.message_title }}
+                :<span>{{title_messages.message_time}}</span> </a></li>
+            {% endfor %}
+	</ul>
+    </div>
+    <div class="title_body" id="title_body">hello! this is messages body</div>
+</div>
+
+<script type="text/javascript" src="{% static 'js/blog/publish.js' %}"></script>
+{% endblock %}
